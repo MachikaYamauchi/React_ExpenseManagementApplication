@@ -32,6 +32,7 @@ const DUMMY_EXPENSES = [
 const App = () => {
   const [expenses, setExpenses] = useState(DUMMY_EXPENSES);
 
+  // Add new Expense from the "NewExpense" compo by using useState and prevState function. This is the clean way when it's based on previous snapshots/states.
   const addExpenseHandler = expense => {
     // console.log("In App.js");
     // console.log(expense);

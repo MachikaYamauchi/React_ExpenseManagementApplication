@@ -54,7 +54,7 @@ const ExpenseForm = (props) => {
       date: new Date(enteredDate),
     };
 
-    // NewExpense.jsから送られてきたmethodを実施
+    // Execute the function from NewExpense Compo -> sending the new expense object to the NewExpense Compo
     props.onSaveExpenseData(expenseData);
 
     // To clear the input fields after submit by using two way binding
@@ -96,6 +96,8 @@ const ExpenseForm = (props) => {
         </div>
       </div>
       <div className="new-expense__actions">
+        {/* set "type=button" to set just the button, not submit */}
+        {/* use the onChancel function from the NewExpense Compo */}
         <button type="button" onClick={props.onChancel}>Cancel</button>
         <button type="submit">Add Expense</button>
       </div>

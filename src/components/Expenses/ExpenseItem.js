@@ -3,6 +3,7 @@ import Card from '../UI/Card';
 import './ExpenseItem.css';
 import React from "react";
 
+// Getting expense data from ExpenseList Compo via props
 const ExpenseItem = (props) => {
   console.log("rxpenseItem evaluated by React")
 

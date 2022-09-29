@@ -8,15 +8,16 @@ import ExpensesChart from "./ExpensesChart";
 
 
 const Expenses = (prop) => { // fetch a "expenses" data via props from "App" component, and the data type is array
-  const [filteredYear, setFilteredYear] = useState("2020");
 
+  const [filteredYear, setFilteredYear] = useState("2020");
   const filterChangeHandler = (selectedYear) => {
     setFilteredYear(selectedYear);
   };
 
+  // The reason why we create filteredExpenses variable in this compo is that we do not want to reduce the expenses data permanently in App compo. And also we already have the expense data from the App compo, which means it is just how they are rendered, so we just do transform how they should be output.
   const filteredExpenses = prop.items.filter((expense) => {
-    // 以下のreturn文はtrueを返し、trueを返したexpenseを、filteredExpensesに格納している
-    // 各年のexpesesをfilteredExpensesの中に格納している。filteredExpensesは、arrayの形でデータを格納。
+    // input the expenses data, which return true by condition, into filteredExpenses
+    // FilteredExpenses is expenses of each year and it is array.
     return expense.date.getFullYear().toString() === filteredYear;
   });
 
@@ -43,7 +44,6 @@ const Expenses = (prop) => { // fetch a "expenses" data via props from "App" com
           onChangeFilter={filterChangeHandler}
         />
         <ExpensesChart expenses={filteredExpenses} />
-
         
         <ExpensesList items={filteredExpenses}/>{/* App componentから取ってきたArrayのexpenses dataを、filterにかけた状態で、ListにするExpensesList componentに渡している。 */}
 
@@ -64,15 +64,6 @@ const Expenses = (prop) => { // fetch a "expenses" data via props from "App" com
 
         {/* ＜方法１＞三項演算子 */}
         {/* {filteredExpenses.length === 0 ? <p>NO expenses found</p> : filteredExpenses.map((expense) => (
-          <ExpenseItem
-            key={expense.id}
-            title={expense.title}
-            amount={expense.title}
-            date={expense.date}
-          />
-        ))} */}
-
-        {/* {filteredExpenses.map((expense) => (
           <ExpenseItem
             key={expense.id}
             title={expense.title}

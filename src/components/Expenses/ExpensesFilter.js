@@ -2,8 +2,10 @@ import React from 'react';
 
 import './ExpensesFilter.css';
 
+// Gtting the filtered year from Expense Compo
 const ExpensesFilter = (props) => {
   
+  // Passing the year to the Expense Compo to useState
   const dropdownChangeHandler = (event) => {
     props.onChangeFilter(event.target.value);
   }
